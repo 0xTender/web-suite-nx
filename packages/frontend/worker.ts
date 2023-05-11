@@ -4,9 +4,18 @@ import { join } from "path";
 
 const listener = new MigrationListener<MigrationEventTypes>();
 
-
+let count = 0;
 listener.on("event_data", async (...data) => {
-  console.log(data)
+  for (let index = 0; index < data.length; index++) {
+    const events = data[index]!;
+    for (let index = 0; index < events.length; index++) {
+      const event = events[index];
+      if (event?.event_changed_name === "e_StructEvent_Hello") {
+        count++;
+        console.log(count);
+      }
+    }
+  }
 });
 
 const run_worker = async () => {

@@ -15,6 +15,9 @@
   },
   "dependencies": {
     "@root/core": "*",
+    "@0xtender/events-schema-generator": "0.2.11",
+    "@0xtender/evm-helpers": "0.2.11",
+    "@0xtender/heisenberg-cli": "0.2.11",
     "@prisma/client": "^4.11.0",
     "@t3-oss/env-nextjs": "^0.2.1",
     "@tanstack/react-query": "^4.28.0",
