@@ -5,7 +5,8 @@
     "dbaeumer.vscode-eslint",
     "nomicfoundation.hardhat-solidity",
     "tintinweb.solidity-visual-auditor",
-    "tintinweb.vscode-solidity-language"
+    "tintinweb.vscode-solidity-language",
+    "firsttris.vscode-jest-runner"
   ],
   "unwantedRecommendations": ["JuanBlanco.solidity"]
 }

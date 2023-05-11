@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@0xtender/core": ["packages/core/src/index.ts"]
+      "@0xtender/core": ["packages/core/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
