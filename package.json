@@ -4,6 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@nx/cypress": "16.1.4",
     "@nx/eslint-plugin": "16.1.4",

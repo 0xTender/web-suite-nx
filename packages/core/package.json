@@ -1,5 +1,5 @@
 {
-  "name": "@0xtender/core",
+  "name": "@root/core",
   "version": "0.0.1",
   "type": "commonjs",
   "devDependencies": {
