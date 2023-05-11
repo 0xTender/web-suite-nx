@@ -30,12 +30,12 @@ import type {
 export declare namespace Hello {
   export type EventStructStruct = {
     message: PromiseOrValue<string>;
-    timestamp: PromiseOrValue<BigNumberish>;
+    randomNumber: PromiseOrValue<BigNumberish>;
   };
 
   export type EventStructStructOutput = [string, BigNumber] & {
     message: string;
-    timestamp: BigNumber;
+    randomNumber: BigNumber;
   };
 }
 

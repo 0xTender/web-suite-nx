@@ -22,9 +22,9 @@ contract Hello {
   function message(string memory _message) public {
     // bad way to generate random number
     // do not use in production
-    let _randomNumber = block.timestamp * 100;
+    uint256 _randomNumber = block.timestamp * 100;
     emit MessageEvent(_message);
 
-    emit StructEvent(EventStruct(_message, block.timestamp));
+    emit StructEvent(EventStruct(_message, _randomNumber));
   }
 }
