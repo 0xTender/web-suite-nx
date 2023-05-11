@@ -1,9 +1,13 @@
 {
   "name": "@root/core",
   "version": "0.0.1",
-  "type": "commonjs",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "hardhat compile"
+    "prebuild": "hardhat compile",
+    "build": "tsc -p tsconfig.build.json --outDir dist",
+    "test": "hardhat test",
+    "deploy": "hardhat deploy",
+    "commit-hook": "npm run deploy && npm run test"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.7.0",

@@ -5,9 +5,11 @@
   "scripts": {
     "prebuild": "nx build @root/core",
     "build": "next build",
-    "predev": "nx build @root/core",
+    "heisenberg:migration": "npx 0xtender-heisenberg generate-migration -o migration.ts contracts.json",
+    "heisenberg:schema": "npx 0xtender-heisenberg generate -o prisma/schema.prisma -i prisma/input.prisma contracts.json && npx prisma format",
+    "heisenberg": "npm run heisenberg:migration && npm run heisenberg:schema",
     "dev": "next dev",
-    "postinstall": "prisma generate",
+    "postinstall": "npm run heisenberg && npx prisma generate",
     "lint": "next lint",
     "start": "next start"
   },

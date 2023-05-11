@@ -4,6 +4,7 @@
 import type {
   BaseContract,
   BigNumber,
+  BigNumberish,
   BytesLike,
   CallOverrides,
   ContractTransaction,
@@ -26,6 +27,18 @@ import type {
   PromiseOrValue,
 } from "./common";
 
+export declare namespace Hello {
+  export type EventStructStruct = {
+    message: PromiseOrValue<string>;
+    timestamp: PromiseOrValue<BigNumberish>;
+  };
+
+  export type EventStructStructOutput = [string, BigNumber] & {
+    message: string;
+    timestamp: BigNumber;
+  };
+}
+
 export interface HelloInterface extends utils.Interface {
   functions: {
     "message(string)": FunctionFragment;
@@ -42,9 +55,11 @@ export interface HelloInterface extends utils.Interface {
 
   events: {
     "MessageEvent(string)": EventFragment;
+    "StructEvent(tuple)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "MessageEvent"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "StructEvent"): EventFragment;
 }
 
 export interface MessageEventEventObject {
@@ -53,6 +68,16 @@ export interface MessageEventEventObject {
 export type MessageEventEvent = TypedEvent<[string], MessageEventEventObject>;
 
 export type MessageEventEventFilter = TypedEventFilter<MessageEventEvent>;
+
+export interface StructEventEventObject {
+  eventStruct: Hello.EventStructStructOutput;
+}
+export type StructEventEvent = TypedEvent<
+  [Hello.EventStructStructOutput],
+  StructEventEventObject
+>;
+
+export type StructEventEventFilter = TypedEventFilter<StructEventEvent>;
 
 export interface Hello extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
@@ -102,6 +127,9 @@ export interface Hello extends BaseContract {
   filters: {
     "MessageEvent(string)"(message?: null): MessageEventEventFilter;
     MessageEvent(message?: null): MessageEventEventFilter;
+
+    "StructEvent(tuple)"(eventStruct?: null): StructEventEventFilter;
+    StructEvent(eventStruct?: null): StructEventEventFilter;
   };
 
   estimateGas: {
