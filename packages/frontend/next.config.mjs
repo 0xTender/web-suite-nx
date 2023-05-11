@@ -3,7 +3,6 @@
  * for Docker builds.
  */
 await import("./src/env.mjs");
-const { composePlugins, withNx } = await import("@nx/next");
 
 /** @type {import("next").NextConfig} */
 const config = {
